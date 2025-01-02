@@ -1,0 +1,475 @@
+{
+    "interactionModel": {
+        "languageModel": {
+            "invocationName": "uk job finder",
+            "intents": [
+                {
+                    "name": "AMAZON.CancelIntent",
+                    "samples": []
+                },
+                {
+                    "name": "AMAZON.HelpIntent",
+                    "samples": []
+                },
+                {
+                    "name": "AMAZON.StopIntent",
+                    "samples": []
+                },
+                {
+                    "name": "SearchJobIntent",
+                    "slots": [
+                        {
+                            "name": "jobType",
+                            "type": "JobType"
+                        },
+                        {
+                            "name": "location",
+                            "type": "AMAZON.GB_CITY"
+                        },
+                        {
+                            "name": "distance",
+                            "type": "AMAZON.NUMBER"
+                        },
+                        {
+                            "name": "minSalary",
+                            "type": "AMAZON.NUMBER"
+                        },
+                        {
+                            "name": "maxSalary",
+                            "type": "AMAZON.NUMBER"
+                        },
+                        {
+                            "name": "jobContractType",
+                            "type": "JobContractType"
+                        },
+                        {
+                            "name": "jobTimeType",
+                            "type": "JobTimeType"
+                        }
+                    ],
+                    "samples": [
+                        "find me a {jobType} job",
+                        "search for {jobType} jobs",
+                        "look for {jobType} jobs",
+                        "find {jobType} jobs in {location}",
+                        "search for {jobType} jobs in {location}",
+                        "find jobs in {location}",
+                        "search for jobs in {location}",
+                        "find {jobType} jobs with salary between {minSalary} and {maxSalary}",
+                        "search for {jobType} jobs in {location} with salary between {minSalary} and {maxSalary}",
+                        "find me a job",
+                        "help me find a job",
+                        "search for jobs",
+                        "find {jobType} jobs in {location} within {distance} miles",
+                        "search for {jobType} jobs within {distance} miles of {location}",
+                        "find jobs near {location}",
+                        "find {jobType} jobs near {location}",
+                        "look for {jobType} jobs within {distance} miles of {location}",
+                        "find jobs paying between {minSalary} and {maxSalary}",
+                        "search for jobs with salary from {minSalary} to {maxSalary}",
+                        "find {jobType} jobs paying at least {minSalary}",
+                        "find {jobType} jobs in {location} paying more than {minSalary}",
+                        "find {jobType} jobs within {distance} miles of {location} paying between {minSalary} and {maxSalary}",
+                        "find {jobContractType} {jobTimeType} {jobType} jobs in {location}",
+                        "search for {jobContractType} {jobType} jobs {jobTimeType} in {location}",
+                        "find {jobTimeType} {jobContractType} {jobType} jobs in {location}"
+                    ]
+                },
+                {
+                    "name": "SaveJobIntent",
+                    "slots": [
+                        {
+                            "name": "jobNumber",
+                            "type": "AMAZON.NUMBER"
+                        }
+                    ],
+                    "samples": [
+                        "save job number {jobNumber}",
+                        "save the {jobNumber} job",
+                        "save job {jobNumber}",
+                        "save this job",
+                        "save the job",
+                        "save it",
+                        "I like job {jobNumber}",
+                        "I want to save job {jobNumber}",
+                        "keep job {jobNumber}",
+                        "remember job {jobNumber}"
+                    ]
+                },
+                {
+                    "name": "ListSavedJobsIntent",
+                    "slots": [],
+                    "samples": [
+                        "list my saved jobs",
+                        "show my saved jobs",
+                        "what jobs have I saved",
+                        "show me my jobs",
+                        "list jobs",
+                        "show jobs",
+                        "what are my saved jobs",
+                        "tell me my saved jobs",
+                        "what jobs do I have saved",
+                        "check my saved jobs"
+                    ]
+                }
+            ],
+            "types": [
+                {
+                    "name": "JobType",
+                    "values": [
+                        {
+                            "name": {
+                                "value": "software engineer",
+                                "synonyms": [
+                                    "software developer",
+                                    "programmer",
+                                    "coder"
+                                ]
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "web developer",
+                                "synonyms": [
+                                    "web designer",
+                                    "frontend developer",
+                                    "backend developer"
+                                ]
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "data scientist",
+                                "synonyms": [
+                                    "data analyst",
+                                    "data engineer"
+                                ]
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "project manager",
+                                "synonyms": [
+                                    "program manager",
+                                    "project lead"
+                                ]
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "business analyst",
+                                "synonyms": [
+                                    "systems analyst",
+                                    "business systems analyst"
+                                ]
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "accountant",
+                                "synonyms": [
+                                    "finance manager",
+                                    "financial analyst"
+                                ]
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "sales manager",
+                                "synonyms": [
+                                    "sales executive",
+                                    "account manager"
+                                ]
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "marketing manager",
+                                "synonyms": [
+                                    "marketing executive",
+                                    "digital marketer"
+                                ]
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "teacher",
+                                "synonyms": [
+                                    "tutor",
+                                    "instructor",
+                                    "educator"
+                                ]
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "nurse",
+                                "synonyms": [
+                                    "registered nurse",
+                                    "healthcare professional"
+                                ]
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "doctor",
+                                "synonyms": [
+                                    "physician",
+                                    "medical practitioner"
+                                ]
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "electrician",
+                                "synonyms": [
+                                    "electrical engineer",
+                                    "electrical technician",
+                                    "electrical installer"
+                                ]
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "plumber",
+                                "synonyms": [
+                                    "plumbing engineer",
+                                    "heating engineer",
+                                    "gas engineer"
+                                ]
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "carpenter",
+                                "synonyms": [
+                                    "joiner",
+                                    "woodworker"
+                                ]
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "mechanic",
+                                "synonyms": [
+                                    "auto mechanic",
+                                    "vehicle technician",
+                                    "car mechanic"
+                                ]
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "builder",
+                                "synonyms": [
+                                    "construction worker",
+                                    "general builder"
+                                ]
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "driver",
+                                "synonyms": [
+                                    "delivery driver",
+                                    "courier",
+                                    "truck driver",
+                                    "lorry driver"
+                                ]
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "chef",
+                                "synonyms": [
+                                    "cook",
+                                    "head chef",
+                                    "sous chef"
+                                ]
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "administrator",
+                                "synonyms": [
+                                    "admin",
+                                    "office admin",
+                                    "administrative assistant"
+                                ]
+                            }
+                        }
+                    ]
+                },
+                {
+                    "name": "JobContractType",
+                    "values": [
+                        {
+                            "name": {
+                                "value": "permanent"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "contract"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "temporary",
+                                "synonyms": [
+                                    "temp"
+                                ]
+                            }
+                        }
+                    ]
+                },
+                {
+                    "name": "JobTimeType",
+                    "values": [
+                        {
+                            "name": {
+                                "value": "full time",
+                                "synonyms": [
+                                    "full-time",
+                                    "fulltime"
+                                ]
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "part time",
+                                "synonyms": [
+                                    "part-time",
+                                    "parttime"
+                                ]
+                            }
+                        }
+                    ]
+                }
+            ]
+        },
+        "dialog": {
+            "intents": [
+                {
+                    "name": "SearchJobIntent",
+                    "confirmationRequired": false,
+                    "prompts": {},
+                    "slots": [
+                        {
+                            "name": "jobType",
+                            "type": "JobType",
+                            "confirmationRequired": false,
+                            "elicitationRequired": true,
+                            "prompts": {
+                                "elicitation": "Elicit.Slot.SearchJobIntent.jobType"
+                            }
+                        },
+                        {
+                            "name": "location",
+                            "type": "AMAZON.GB_CITY",
+                            "confirmationRequired": false,
+                            "elicitationRequired": true,
+                            "prompts": {
+                                "elicitation": "Elicit.Slot.SearchJobIntent.location"
+                            }
+                        },
+                        {
+                            "name": "distance",
+                            "type": "AMAZON.NUMBER",
+                            "confirmationRequired": false,
+                            "elicitationRequired": false,
+                            "prompts": {
+                                "elicitation": "Elicit.Slot.SearchJobIntent.distance"
+                            }
+                        },
+                        {
+                            "name": "minSalary",
+                            "type": "AMAZON.NUMBER",
+                            "confirmationRequired": false,
+                            "elicitationRequired": false,
+                            "prompts": {
+                                "elicitation": "Elicit.Slot.SearchJobIntent.minSalary"
+                            }
+                        },
+                        {
+                            "name": "maxSalary",
+                            "type": "AMAZON.NUMBER",
+                            "confirmationRequired": false,
+                            "elicitationRequired": false,
+                            "prompts": {
+                                "elicitation": "Elicit.Slot.SearchJobIntent.maxSalary"
+                            }
+                        },
+                        {
+                            "name": "jobContractType",
+                            "type": "JobContractType",
+                            "confirmationRequired": false,
+                            "elicitationRequired": false
+                        },
+                        {
+                            "name": "jobTimeType",
+                            "type": "JobTimeType",
+                            "confirmationRequired": false,
+                            "elicitationRequired": false
+                        }
+                    ]
+                }
+            ]
+        },
+        "prompts": [
+            {
+                "id": "Elicit.Slot.SearchJobIntent.jobType",
+                "variations": [
+                    {
+                        "type": "PlainText",
+                        "value": "What type of job are you looking for?"
+                    },
+                    {
+                        "type": "PlainText",
+                        "value": "What kind of work interests you?"
+                    }
+                ]
+            },
+            {
+                "id": "Elicit.Slot.SearchJobIntent.location",
+                "variations": [
+                    {
+                        "type": "PlainText",
+                        "value": "In which city would you like to work?"
+                    },
+                    {
+                        "type": "PlainText",
+                        "value": "Where would you like to find jobs?"
+                    }
+                ]
+            },
+            {
+                "id": "Elicit.Slot.SearchJobIntent.distance",
+                "variations": [
+                    {
+                        "type": "PlainText",
+                        "value": "How many miles are you willing to travel?"
+                    }
+                ]
+            },
+            {
+                "id": "Elicit.Slot.SearchJobIntent.minSalary",
+                "variations": [
+                    {
+                        "type": "PlainText",
+                        "value": "What's the minimum salary you're looking for?"
+                    }
+                ]
+            },
+            {
+                "id": "Elicit.Slot.SearchJobIntent.maxSalary",
+                "variations": [
+                    {
+                        "type": "PlainText",
+                        "value": "What's the maximum salary you're looking for?"
+                    }
+                ]
+            }
+        ]
+    }
+}

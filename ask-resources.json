@@ -1,0 +1,34 @@
+{
+  "askcli": {
+    "profile": "default"
+  },
+  "profiles": {
+    "default": {
+      "skillMetadata": {
+        "src": "./skill-package"
+      },
+      "code": {
+        "default": {
+          "src": "./lambda"
+        }
+      },
+      "skillInfrastructure": {
+        "type": "@ask-cli/cfn-deployer",
+        "userConfig": {
+          "runtime": "python3.9",
+          "handler": "lambda_function.lambda_handler",
+          "templatePath": "./infrastructure/cfn-deployer/skill-stack.yaml",
+          "awsRegion": "eu-west-1",
+          "skillId": "amzn1.ask.skill.d72b3bd9-164a-4c5c-9c2f-0f97c4a705af",
+          "cfn": {
+            "capabilities": [
+              "CAPABILITY_IAM",
+              "CAPABILITY_NAMED_IAM",
+              "CAPABILITY_AUTO_EXPAND"
+            ]
+          }
+        }
+      }
+    }
+  }
+}

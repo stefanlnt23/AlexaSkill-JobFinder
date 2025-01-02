@@ -1,0 +1,66 @@
+{
+  "manifest": {
+    "publishingInformation": {
+      "locales": {
+        "en-GB": {
+          "summary": "Find and save UK jobs using voice commands",
+          "examplePhrases": [
+            "Alexa, ask uk job finder to find electrician jobs in Coventry within 10 miles",
+            "Alexa, ask uk job finder to find jobs with salary between 30000 and 50000",
+            "Alexa, ask uk job finder to list my saved jobs"
+          ],
+          "keywords": [
+            "job",
+            "career",
+            "employment",
+            "work",
+            "reed",
+            "uk",
+            "search",
+            "salary",
+            "location",
+            "distance"
+          ],
+          "name": "UK Job Finder",
+          "description": "UK Job Finder helps you search and save jobs from Reed.co.uk using voice commands. You can search for jobs by title, location, distance, and salary range. Features include:\n\n• Search by job title and location\n• Specify distance range (e.g., within 10 miles)\n• Filter by salary range\n• Save interesting positions\n• Review saved jobs\n• View full details on the web interface"
+        }
+      },
+      "isAvailableWorldwide": false,
+      "testingInstructions": "Sample commands:\n1. 'Find electrician jobs in Coventry within 10 miles'\n2. 'Find software developer jobs with salary between 30000 and 50000'\n3. 'Find teaching jobs in Manchester'\n4. 'Save job number 1'\n5. 'List my saved jobs'",
+      "category": "BUSINESS_AND_FINANCE",
+      "distributionCountries": [
+        "GB"
+      ]
+    },
+    "apis": {
+      "custom": {
+        "endpoint": {
+          "uri": "arn:aws:lambda:eu-west-1:491085415962:function:ask-UKJobFinder-default-skillStack-1734457497995-function"
+        },
+        "interfaces": []
+      }
+    },
+    "manifestVersion": "1.0",
+    "permissions": [
+      {
+        "name": "alexa::profile:given_name:read"
+      },
+      {
+        "name": "alexa::profile:email:read"
+      }
+    ],
+    "privacyAndCompliance": {
+      "allowsPurchases": false,
+      "locales": {
+        "en-GB": {
+          "privacyPolicyUrl": "",
+          "termsOfUseUrl": ""
+        }
+      },
+      "isExportCompliant": true,
+      "containsAds": false,
+      "isChildDirected": false,
+      "usesPersonalInfo": true
+    }
+  }
+}

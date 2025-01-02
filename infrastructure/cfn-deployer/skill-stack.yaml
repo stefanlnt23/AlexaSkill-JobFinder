@@ -1,0 +1,101 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Transform: AWS::Serverless-2016-10-31
+Description: UK Job Finder Alexa Skill Infrastructure
+
+Parameters:
+  SkillId:
+    Type: String
+    Description: Alexa Skill ID
+  
+  CodeBucket:
+    Type: String
+    Description: S3 bucket for Lambda code
+
+  CodeKey:
+    Type: String
+    Description: S3 key for Lambda code
+
+  CodeVersion:
+    Type: String
+    Description: S3 object version for Lambda code
+
+  LambdaHandler:
+    Type: String
+    Description: Lambda handler
+
+  LambdaRuntime:
+    Type: String
+    Description: Lambda runtime (e.g., python3.9)
+
+Resources:
+  AlexaSkillFunction:
+    Type: AWS::Serverless::Function
+    Properties:
+      FunctionName: !Sub ${AWS::StackName}-function
+      CodeUri:
+        Bucket: !Ref CodeBucket
+        Key: !Ref CodeKey
+        Version: !Ref CodeVersion
+      Handler: !Ref LambdaHandler
+      Runtime: !Ref LambdaRuntime
+      MemorySize: 128
+      Timeout: 30
+      Environment:
+        Variables:
+          DYNAMODB_TABLE: !Ref SavedJobsTable
+          REED_API_KEY: 'a6aaecb1-9552-4732-a18d-d61bc987db3e'
+      Policies:
+        - DynamoDBCrudPolicy:
+            TableName: !Ref SavedJobsTable
+        - Statement:
+            - Effect: Allow
+              Action:
+                - alexa:GetUser
+              Resource: "*"
+      Events:
+        AlexaSkillEvent:
+          Type: AlexaSkill
+          Properties:
+            SkillId: !Ref SkillId
+
+  SavedJobsTable:
+    Type: AWS::DynamoDB::Table
+    Properties:
+      TableName: !Sub ${AWS::StackName}-saved-jobs
+      AttributeDefinitions:
+        - AttributeName: user_id
+          AttributeType: S
+        - AttributeName: job_id
+          AttributeType: S
+        - AttributeName: user_email
+          AttributeType: S
+      KeySchema:
+        - AttributeName: user_id
+          KeyType: HASH
+        - AttributeName: job_id
+          KeyType: RANGE
+      GlobalSecondaryIndexes:
+        - IndexName: UserEmailIndex
+          KeySchema:
+            - AttributeName: user_email
+              KeyType: HASH
+            - AttributeName: job_id
+              KeyType: RANGE
+          Projection:
+            ProjectionType: ALL
+      BillingMode: PAY_PER_REQUEST
+      SSESpecification:
+        SSEEnabled: true
+
+Outputs:
+  SkillEndpoint:
+    Description: ARN of the Lambda function
+    Value: !GetAtt AlexaSkillFunction.Arn
+  
+  TableName:
+    Description: Name of the DynamoDB table
+    Value: !Ref SavedJobsTable
+  
+  TableArn:
+    Description: ARN of the DynamoDB table
+    Value: !GetAtt SavedJobsTable.Arn

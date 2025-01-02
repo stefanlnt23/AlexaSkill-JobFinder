@@ -1,0 +1,6 @@
+{
+  "Variables": {
+    "REED_API_KEY": "a6aaecb1-9552-4732-a18d-d61bc987db3e",
+    "DYNAMODB_TABLE": "uk-job-finder-saved-jobs"
+  }
+}
